@@ -1,4 +1,4 @@
-#!/usr/bin/python
+
 import ample_types as types
 import sys, os, subprocess, struct,binascii
 from collections import OrderedDict
