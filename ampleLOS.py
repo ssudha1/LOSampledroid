@@ -1,5 +1,5 @@
 #!/usr/python
-#import ample_rbtree as atsafemap
+
 import ampleParse as art
 import ample_types as types
 import amplevm as jvm2
@@ -107,7 +107,6 @@ def extObject(addrStart, jvm2):
 	addr.seek(offset)
 	oClass = hex(struct.unpack("<I", addr.read(4))[0])
 	if (art.validateAddr(int(oClass, 16), start, end)):
-		#jvm2.searchRef(oClass)
 		off = addr.tell()-4
 		objSize = jvm2.dumpRefs(oClass, addr, off, start)
 	
