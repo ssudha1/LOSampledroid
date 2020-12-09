@@ -1,5 +1,5 @@
 #!/usr/python
-
+#import ample_rbtree as atsafemap
 import amplerec as art
 import ample_types as types
 import amplevm as jvm2
@@ -107,6 +107,7 @@ def extObject(addrStart, jvm2):
 	addr.seek(offset)
 	oClass = hex(struct.unpack("<I", addr.read(4))[0])
 	if (art.validateAddr(int(oClass, 16), start, end)):
+		#jvm2.searchRef(oClass)
 		off = addr.tell()-4
 		objSize = jvm2.dumpRefs(oClass, addr, off, start)
 	
@@ -134,7 +135,9 @@ def artrecover(addr, mapList):
     file_type_1 = b'\x89\x50\x4e\x47\x0D\x0A\x1A\x0A'
     file_type_3 = b'\x4A\x46\x49\x46'
     file_type_4 = b'\x45\x78\x69\x66'
-    file_type_5 = b'\x25\x50\x44\x46'
+    file_type_5 = b'\x25\x50\x44\x46' 
+    file_type_6 = b'\x49\x49\x2A\x00'
+
     pos = 0
     data = addr.read()
     if file_type_1 in data:
@@ -171,6 +174,13 @@ def artrecover(addr, mapList):
         if pos != -1:
             new_data = data[pos:]
             with open("doc.pdf", "wb") as ofile:
+                ofile.write(new_data)
+                print("Finished extracting file and save a copy so that new file decoded is not overwritten")
+    elif file_type_6 in data:
+        pos = data.find(file_type_6)
+        if pos != -1:
+            new_data = data[pos:]
+            with open("image.tiff", "wb") as ofile:
                 ofile.write(new_data)
                 print("Finished extracting file and save a copy so that new file decoded is not overwritten")
     else:
