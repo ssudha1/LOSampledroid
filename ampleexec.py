@@ -27,10 +27,6 @@ if(sys.argv[2]=="LOS"):
 	    print "@ Address "+addr
             print " The extracted large object details"
 	    heap.extLOSObject(addr, jvm2)
-	elif (sys.argv[3]=="getarray"):
-	    addr = sys.argv[4]
-	    print "@ Address "+addr
-            print "The extracted large object primitive array"
-	    heap.extObject(addr, jvm2)
+	
 	
 
