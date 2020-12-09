@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import ample_atsafemap as atsafemap
 import ampleLOS as heap
-import ampleParse as art
+import amplerec as art
 import amplevm as jvm2
 
 from collections import OrderedDict
