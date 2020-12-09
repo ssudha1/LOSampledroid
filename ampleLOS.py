@@ -1,6 +1,6 @@
 #!/usr/python
 
-import ampleParse as art
+import amplerec as art
 import ample_types as types
 import amplevm as jvm2
 import sys, os, subprocess, struct,binascii
