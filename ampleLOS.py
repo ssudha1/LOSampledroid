@@ -1,5 +1,5 @@
 #!/usr/python
-#import ample_rbtree as atsafemap
+
 import amplerec as art
 import ample_types as types
 import amplevm as jvm2
