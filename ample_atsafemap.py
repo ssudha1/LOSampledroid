@@ -1,11 +1,11 @@
 import ample_types as types
-import ampleParse as art
+import amplerec as art
 import sys, os, subprocess, struct,binascii
 from collections import OrderedDict
 
 nodes_dict = OrderedDict()
 def nodeMeta(pointer, memList):
-	[g, objOff]  = art.fromPointer(pointer, memList)
+	[g, objOff]  = art.extPointer(pointer, memList)
 	g.seek(objOff)
 	begin = hex(struct.unpack("<I", g.read(4))[0])
 	tail = hex(struct.unpack("<I", g.read(4))[0])	
