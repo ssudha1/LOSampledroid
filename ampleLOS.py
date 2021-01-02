@@ -83,8 +83,8 @@ def extlosSpace(nPath, rAddr):
 	losBegin = readPointer(losPath, offset, 64)
         losEnd = readPointer(losPath, offset, 68)
 	lock_ = readPointer(losPath, offset, 72)
-	large_objects_ = hex(int(largeObjectSpace, 16)+112)
-	#large_objects_ = readPointer(losPath, offset, 112) #Allocationtracker,stdmap-rbtree
+	large_object_ = hex(int(largeObjectSpace, 16)+112)
+	large_objects_ = readPointer(losPath, offset, 112) #Allocationtracker,stdmap-rbtree
 	print "Number of bytes allocated " + str(num_bytes_allocated)
         print "Number of objects allocated " + str(num_objects_allocated)
         print "Total bytes allocated " + str(total_bytes_allocated)
